@@ -23,11 +23,11 @@ export const loadImage = document.querySelector('div.section');
 loadImage.classList.add('visible');
 setTimeout(() => {
   loadBreeds();
-}, 1000);
+}, 500);
 
-refs.catBreedSelect.addEventListener('change', catCard);
+refs.catBreedSelect.addEventListener('change', getCatCard);
 
-function catCard() {
+function getCatCard() {
   showLoaders();
   refs.catInfoContainer.innerHTML = '';
   const idValue = refs.catBreedSelect.value;
@@ -83,7 +83,7 @@ function loadBreeds() {
   fetchBreeds()
     .then(data => {
       createMarkup(data);
-      if (data) {
+      if (data.length) {
         hideLoaders();
         showSelect();
         Notify.success('Successfully loaded all breeds');
