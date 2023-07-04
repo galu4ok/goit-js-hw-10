@@ -1,0 +1,108 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: lightsteelblue;
+  color: #212121;
+  line-height: 1.5;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+.timer {
+  display: flex;
+  gap: 30px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.value {
+  font-weight: 700;
+  font-size: 50px;
+  color: #32c682;
+}
+
+.label {
+  font-size: 40px;
+  color: #999;
+  text-transform: uppercase;
+}
+
+.cat-card {
+  max-width: 500px;
+  width: 33.33%;
+  height: auto;
+  padding: 10px;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  color: darkred;
+  cursor: pointer;
+  transition: 0.2s linear;
+}
+#parent {
+  width: 70%;
+}
+
+#child {
+  width: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+}
+
+.visible,
+div.section.visible,
+p.loader.visible,
+p.error.visible {
+  display: block;
+}
+
+.hidden,
+div.section.hidden,
+p.loader.hidden,
+p.error.hidden {
+  display: none;
+}
+
+div.section {
+  min-width: 200px;
+  width: 33.33%;
+  height: 360px;
+  padding: 10px;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  color: #ccc;
+  cursor: pointer;
+  transition: 0.2s linear;
+}
+.loader-img {
+  width: 48px;
+  height: 48px;
+  border: 5px solid #fff;
+  border-bottom-color: #ff3d00;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
