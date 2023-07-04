@@ -39,18 +39,22 @@ function catCard() {
         return;
       }
       const catCard = data.map(({ url, breeds }) => {
-        return `<div class='cat-card' id="parent">
-            <img src=${url} alt=${breeds[0].name} width="auto">            
-            <h2>${breeds[0].name}</h2>
-            <p id="child">${breeds[0].description}</p>
-            <h4>Temperament:</h4>
-            <p id="child">${breeds[0].temperament}</p>
-            </div>`;
+        return `<img src=${url} alt=${breeds[0].name} width="400">
+    <div class='cat-card'>
+      <h2>${breeds[0].name}</h2>
+      <p>${breeds[0].description}</p>
+      <h3>Temperament:</h3>
+      <p>${breeds[0].temperament}</p>
+    </div>`;
       });
       refs.catInfoContainer.insertAdjacentHTML('beforeend', catCard);
-      hideLoaders();
-      showSelect();
-      Notify.success('Successfully loaded one cat');
+      if (data.length) {
+        hideLoaders();
+        showSelect();
+        Notify.success('Successfully loaded one cat');
+      } else {
+        Notify.failure('No data found!');
+      }
     })
     .catch(err => {
       console.log(err);
@@ -74,7 +78,7 @@ function createMarkup(arr) {
 }
 
 function loadBreeds() {
-  const startOption = `<option value="...">...</option>`;
+  const startOption = `<option value="...">~~~ Please make a choice ~~~</option>`;
   refs.catBreedSelect.insertAdjacentHTML('afterbegin', startOption);
   fetchBreeds()
     .then(data => {
